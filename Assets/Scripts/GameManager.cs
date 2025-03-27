@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public float timeBetweenWaves = 5.1f; 
     public float timeBetweenSpawn = 0.2f;
 
-    public TextMeshProUGUI waveCountdownText;
+    public Text waveCountdownText;
 
     private float countdown = 2f; 
     private int waveIndex = 0;
@@ -24,9 +24,11 @@ public class GameManager : MonoBehaviour
 
         countdown -= Time.deltaTime; 
 
-        waveCountdownText.text = Mathf.Round(countdown).ToString();
-    }
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
+        waveCountdownText.text = string.Format("{0:00.00}", countdown);
+    }
+    
     IEnumerator SpawnWave(){
         
         waveIndex++;

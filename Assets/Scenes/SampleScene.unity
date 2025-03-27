@@ -998,6 +998,7 @@ GameObject:
   - component: {fileID: 197528228}
   - component: {fileID: 197528227}
   - component: {fileID: 197528229}
+  - component: {fileID: 197528230}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1052,6 +1053,19 @@ MonoBehaviour:
   standardTurretPrefab: {fileID: 2583618472383894175, guid: 9e157b908da858447b03a35f4569336e, type: 3}
   missileTurretPrefab: {fileID: 6371080714641770258, guid: 3090bc89a4e6af74d90f5efeb51d06b0, type: 3}
   laserTurretPrefab: {fileID: 0}
+--- !u!114 &197528230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197528226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefe81ab7d0441a479df161a2a10c8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 400
 --- !u!1001 &226110290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1124,7 +1138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3976775094536956879, guid: 50ee1026d2bb1a24ba99d57ed9933372, type: 3}
       propertyPath: m_Name
-      value: Standard Turret (1)
+      value: Missile Turret
       objectReference: {fileID: 0}
     - target: {fileID: 4066649808904874512, guid: 50ee1026d2bb1a24ba99d57ed9933372, type: 3}
       propertyPath: m_Sprite
@@ -1228,7 +1242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6599004341436345014, guid: 50ee1026d2bb1a24ba99d57ed9933372, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseMissileTurret
+      value: SelectMissileTurret
       objectReference: {fileID: 0}
     - target: {fileID: 6599004341436345014, guid: 50ee1026d2bb1a24ba99d57ed9933372, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -7031,7 +7045,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3976775094536956879, guid: 50ee1026d2bb1a24ba99d57ed9933372, type: 3}
       propertyPath: m_Name
-      value: Standard Turret (2)
+      value: Laser Turret
       objectReference: {fileID: 0}
     - target: {fileID: 4066649808904874512, guid: 50ee1026d2bb1a24ba99d57ed9933372, type: 3}
       propertyPath: m_Sprite
@@ -11271,6 +11285,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93025fb86ee4bc40b5f5bb2ca7eaffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standardTurret:
+    prefab: {fileID: 2583618472383894175, guid: 9e157b908da858447b03a35f4569336e, type: 3}
+    cost: 100
+  missileLauncher:
+    prefab: {fileID: 6371080714641770258, guid: 3090bc89a4e6af74d90f5efeb51d06b0, type: 3}
+    cost: 250
 --- !u!1001 &1427093437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13384,6 +13404,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2702405923428011213, guid: fc9d93e1c224efd4b9dcce4e37406eb8, type: 3}
   m_PrefabInstance: {fileID: 1687068366}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1694718417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1694718421}
+  - component: {fileID: 1694718420}
+  - component: {fileID: 1694718419}
+  - component: {fileID: 1694718418}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1694718418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694718417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1694718419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694718417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &1694718420
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694718417}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1694718421
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694718417}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 334, y: 149.5}
+  m_SizeDelta: {x: 668, y: 299}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1708910157
 GameObject:
   m_ObjectHideFlags: 0
@@ -17435,7 +17556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6599004341436345014, guid: 50ee1026d2bb1a24ba99d57ed9933372, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseStandardTurret
+      value: SelectStandardTurret
       objectReference: {fileID: 0}
     - target: {fileID: 6599004341436345014, guid: 50ee1026d2bb1a24ba99d57ed9933372, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -17610,3 +17731,4 @@ SceneRoots:
   - {fileID: 791808295}
   - {fileID: 1903637247}
   - {fileID: 1446852911}
+  - {fileID: 1694718421}

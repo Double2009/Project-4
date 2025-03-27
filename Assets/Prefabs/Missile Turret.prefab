@@ -259,7 +259,7 @@ MonoBehaviour:
   range: 30
   turnSpeed: 10
   fireRate: 0.25
-  bulletPrefab: {fileID: 3330616437362476822, guid: 62c5e8f970fedc642bcb976d4b483a5e, type: 3}
+  bulletPrefab: {fileID: 5837523131035047527, guid: 8901ffa05dfb9a34687d1d40debfa752, type: 3}
   firePoint: {fileID: 3962044396811537281}
 --- !u!1 &7801916235790246173
 GameObject:
