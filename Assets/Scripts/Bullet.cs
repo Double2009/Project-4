@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
             Damage(target);
         }
 
-        Destroy(gameObject);s
+        Destroy(gameObject);
     }
 
     void Explode(){

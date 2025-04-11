@@ -1,23 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
+
 
 public class GameOver : MonoBehaviour
 {
+    
+    public string menuSceneName = "MainMenu";
+    public SceneFader sceneFader; 
 
-    public bool gameEnded = false; 
-    // Update is called once per frame
-    void Update()
-    {
-        if(gameEnded){
-            return;
-        }
 
-        if(PlayerStats.Lives <=0){
-            EndGame();
-        }
+
+    public void Retry(){
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
-    void EndGame(){
-        gameEnded = true;
-        Debug.Log("Game Over");
+    public void Menu(){
+        sceneFader.FadeTo(menuSceneName);
     }
+
 }

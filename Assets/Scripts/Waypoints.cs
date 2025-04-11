@@ -14,15 +14,4 @@ public class Waypoints : MonoBehaviour
             points[i] = transform.GetChild(i);
         }
     }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
